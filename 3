@@ -1,0 +1,102 @@
+"""
+4)	Реализуйте базовый класс Car. У данного класса должны быть следующие атрибуты: speed, color, name, is_police (булево).  
+А также методы: go, stop, turn(direction), которые должны сообщать, что машина поехала, остановилась, повернула (куда). 
+Опишите несколько дочерних классов: TownCar, SportCar, WorkCar, PoliceCar. 
+Добавьте в базовый класс метод show_speed, который должен показывать текущую скорость автомобиля. 
+Для классов TownCar и WorkCar переопределите метод show_speed. 
+При значении скорости свыше 60 (TownCar) и 40 (WorkCar) должно выводиться сообщение о превышении скорости.
+"""
+class Car:
+  
+    def __init__(self, speed, color, name, is_police):
+        self.speed = speed
+        self.color = color
+        self.name = name
+        self.is_police = is_police   
+   
+    def go(self):
+        return "Машина поехала"
+    
+    def stop(self):
+        return "Машина остановилась"
+    
+    def turn(self):
+        direction = input("Введите направление")
+        answer = f"Машина повернула {direction}"
+        return answer 
+    
+    def show_speed(self):
+        return self.speed
+    
+class TownCar(Car):
+
+    def __init__(self, speed, color, name, is_police):
+        super().__init__(speed, color, name, is_police)
+
+    def show_speed(self):
+        if self.speed >=60:
+            return "Вы превысили скорость!"
+        else: 
+            return speed 
+           
+class SportCar(Car):
+     def __init__(self, speed, color, name, is_police):
+        super().__init__(speed, color, name, is_police)
+
+class WorkCar(Car):
+    def __init__(self, speed, color, name, is_police):
+        super().__init__(speed, color, name, is_police)
+    
+    def show_speed(self):
+        if self.speed >=40:
+            return "Вы превысили скорость!" 
+        else: 
+            return speed 
+
+class PoliceCar(Car):
+    def __init__(self, speed, color, name, is_police):
+        super().__init__(speed, color, name, is_police)
+
+speed = 45
+color = "red"
+name = "Mazda"
+is_police = False
+
+towncar_1 = TownCar(speed, color, name, is_police)
+print(towncar_1.go())
+print(towncar_1.stop())
+print(towncar_1.turn())
+print(towncar_1.show_speed())
+
+speed = 55
+color = "green"
+name = "Mazda"
+is_police = False
+
+sportcar_1 = SportCar(speed, color, name, is_police)
+print(sportcar_1.go())
+print(sportcar_1.stop())
+print(sportcar_1.turn())
+print(sportcar_1.show_speed())
+
+speed = 60
+color = "green"
+name = "Mazda"
+is_police = False
+
+workCar_1 = WorkCar(speed, color, name, is_police)
+print(workCar_1.go())
+print(workCar_1.stop())
+print(workCar_1.turn())
+print(workCar_1.show_speed())
+
+speed = 70
+color = "green"
+name = "Mazda"
+is_police = False
+
+policeCar_1 = PoliceCar(speed, color, name, is_police)
+print(policeCar_1.go())
+print(policeCar_1.stop())
+print(policeCar_1.turn())
+print(policeCar_1.show_speed())
