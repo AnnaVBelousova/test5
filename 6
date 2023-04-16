@@ -1,0 +1,50 @@
+"""
+Задача 34:  Винни-Пух попросил Вас посмотреть, есть ли в его стихах ритм. Поскольку разобраться в его кричалках не настолько просто, 
+насколько легко он их придумывает, Вам стоит написать программу. 
+Винни-Пух считает, что ритм есть, если число слогов (т.е. число гласных букв) в каждой фразе стихотворения одинаковое. 
+Фраза может состоять из одного слова, если во фразе несколько слов, то они разделяются дефисами. 
+Фразы отделяются друг от друга пробелами. Стихотворение  Винни-Пух вбивает в программу с клавиатуры. 
+В ответе напишите “Парам пам-пам”, если с ритмом все в порядке и “Пам парам”, если с ритмом все не в порядке
+
+*Пример:*
+
+**Ввод:** пара-ра-рам рам-пам-папам па-ра-па-да    
+    **Вывод:** Парам пам-пам  
+"""
+
+def count_of_vowels_in_each_word_as_list(poem):
+    poem_as_list = poem.split(" ")
+    lst = []
+
+    for el in range(len(poem_as_list)):
+        count_of_vowels = 0
+        for i in poem_as_list[el]:
+            if  i  in vowels:
+                count_of_vowels = count_of_vowels+1       
+        lst.append(count_of_vowels)
+    return lst
+
+def compare_count_of_vowels_in_each_word(lst):
+    i = 0
+    #print(lst)
+
+    while i<len(lst)-1:
+      
+        if lst[i]==lst[i+1]:
+            res = "Парам пам-пам"
+        else:
+            res = "Пам парам"
+
+        i=i+1
+
+    return res
+        
+
+poem = input("Введите стихотворение согласно условию задачи: ")
+vowels = "аеёиоуыэюя"
+
+
+
+lst = count_of_vowels_in_each_word_as_list(poem)
+answer = compare_count_of_vowels_in_each_word(lst)
+print(answer)
